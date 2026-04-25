@@ -1,13 +1,22 @@
-function responder() {
-    const respostas = [
-        "Domingo e tu quer acordar cedo? Ah, vá tomar no cu. Tenta se levantar e já ir tomar uma ducha, ou faz uma caminhada rápida para aquecer o corpo.",
-        "Tá com preguiça de estudar? Se continuar assim, vai acabar morrendo na merda. Senta essa bunda na cadeira agora e estuda por 30 minutos sem olhar o celular!",
-        "Não quer treinar? Olha que corpo de bosta tu tem. Levanta, faz 20 flexões agora ou aceita que você é um fracassado.",
-        "Quer parar de procrastinar? Esquece a rede social, para de ser um inútil e começa a tarefa principal agora. O mundo não espera ninguém, seu lixo."
-    ];
-
+async function responder() {
+    const input = document.getElementById('pergunta').value;
     const respostaDiv = document.getElementById('resposta');
-    const aleatoria = respostas[Math.floor(Math.random() * respostas.length)];
     
-    respostaDiv.innerText = aleatoria;
+    if (!input) return;
+    respostaDiv.innerText = "Pensando em como te xingar...";
+
+    // URL do seu Google Apps Script
+    const url = "https://script.google.com/macros/s/AKfycbyNwOecawak24Xquasd4ts5Om3dHpVlamufRgF1MgQYpMfMDFxhvm3sfAR7DWCU1QBUAA/exec";
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({ pergunta: input })
+        });
+
+        const data = await response.json();
+        respostaDiv.innerText = data.choices[0].message.content;
+    } catch (error) {
+        respostaDiv.innerText = "Erro ao conectar. Tenta de novo, seu inútil.";
+    }
 }
