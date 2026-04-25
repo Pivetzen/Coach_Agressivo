@@ -11,7 +11,7 @@ async function responder() {
 
     // --- Estado de Carregamento ---
     btn.classList.add('loading');
-    btn.firstElementChild.innerText = "PENSANDO EM COMO TE XINGAR...";
+    btn.firstElementChild.innerText = "Pensando em como te xingar...";
     
     // Esconde resposta anterior se houver
     respostaContainer.classList.add('hidden');
