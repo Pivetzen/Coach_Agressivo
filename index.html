@@ -2,15 +2,32 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Coach Agressivo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach de Merda - IA</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Coach de Merda</h1>
-        <textarea id="pergunta" placeholder="Qual a sua desculpa hoje?"></textarea>
-        <button onclick="responder()">PERGUNTAR</button>
-        <div id="resposta"></div>
+    <div class="main-wrapper">
+        <div class="container">
+            <header>
+                <h1>COACH DE MERDA</h1>
+                <p class="subtitle">A IA que te xinga até você mover a bunda.</p>
+            </header>
+            
+            <div class="input-area">
+                <textarea id="pergunta" placeholder="Qual é a sua desculpa patética de hoje?"></textarea>
+                <button id="btn-perguntar" onclick="responder()">
+                    <span>PERGUNTAR</span>
+                    <div class="transition"></div>
+                </button>
+            </div>
+            
+            <div id="resposta-container" class="hidden">
+                <div class="resposta-header">A REALIDADE:</div>
+                <div id="resposta"></div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
